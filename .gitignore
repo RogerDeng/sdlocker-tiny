@@ -1,0 +1,5 @@
+*.elf
+*.lst
+*.o
+*.obj
+*.swp
