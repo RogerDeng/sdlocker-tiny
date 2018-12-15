@@ -153,13 +153,20 @@
 /*
  * Define LED blinking patterns.
  */
-#define PATTERN_LOCKED        0x80000000      // Led steady ON, card is locked (write-protected)
-#define PATTERN_UNLOCKED      0x00000000      // Led steady OFF, card is unlocked (write allowed)
-#define PATTERN_BOOTING       0x844b0000      // Device just powered up (or card just inserted, if using slot detect switch)
-#define PATTERN_LOADING       0xa0000000      // Device trying to read the card. Fast blink 1
-#define PATTERN_READING       0xa5000000      // Device trying to read registers from a card. Fast blink 2
-#define PATTERN_FAILED        0x00030003      // Device could not change card lock state. Slow blink 1
-#define PATTERN_WERROR        0x000f000f      // Device could not write registers to a card. Slow blink 2
+// Led steady ON, card is locked (write-protected)
+#define PATTERN_LOCKED        0x80000000
+// Led steady OFF, card is unlocked (write allowed)
+#define PATTERN_UNLOCKED      0x00000000
+// Device just powered up (or card just inserted, if using slot detect switch)
+#define PATTERN_BOOTING       0x844b0000
+// Device trying to read the card. Fast blink 1
+#define PATTERN_LOADING       0xa0000000
+// Device trying to read registers from a card. Fast blink 2
+#define PATTERN_READING       0xa5000000
+// Device could not change card lock state. Slow blink 1
+#define PATTERN_FAILED        0x00030003
+// Device could not write registers to a card. Slow blink 2
+#define PATTERN_WERROR        0x000f000f
 
 
 /*
