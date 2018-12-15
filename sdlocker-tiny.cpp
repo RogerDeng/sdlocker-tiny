@@ -85,12 +85,6 @@
 
 
 /*
- * Define the lock bit mask within byte 14 of the CSD
- */
-#define LOCK_BIT_MASK       0x10 // mask for the lock bit
-
-
-/*
  * Define error codes that can be returned by local functions
  */
 #define SDCARD_OK           0   // success
@@ -174,6 +168,11 @@
 #define CRC7_POLY       0x89    // polynomial used for CSD CRCs
 
 
+/*
+ * Define the lock bit masks
+ */
+#define LOCK_BIT_MASK_TMP 0x10; // mask for the TMP lock bit
+#define LOCK_BIT_MASK_PERM 0x20; // mask for the PERM lock bit
 
 /*
  * Local variables
@@ -183,7 +182,7 @@ uint8_t     sdtype;     // Flag for SD card type
 uint8_t     csd[16];    // Card registers
 uint8_t     cid[16];
 uint8_t     crctable[256];
-
+uint8_t     lock_bit_mask = LOCK_BIT_MASK_TMP; // Currently selected mask
 
 /*
  * Local functions
@@ -205,9 +204,11 @@ static void     BlinkLED(uint32_t pattern);
 static uint8_t  ButtonIs(uint8_t state);
 static uint8_t  ReadSwitchOnce(void);
 static uint8_t  CardIsLocked(void);
+static void     SwitchToPermMask(void);
 static void     ReadState(void);
 static void     ShowState(void);
 static void     ToggleState(void);
+
 
 
 
@@ -215,6 +216,22 @@ int main(void)
 {
     uint8_t prevState; // Last known state of the card (locked or unlocked)
 
+    if (ButtonIs(SW_PRESSED))   // If the user presses the button...
+    {
+
+        SwitchToPermMask();                    // Display the updated state, and...
+        while (!ButtonIs(SW_RELEASED))  // ...wait until the button is released
+        // note (ButtonIs(SW_PRESSED)) wouldn't do here, we want to debounce the releasing
+        {
+            _delay_ms(25);
+        }
+        LEDSW_AS_LED;               // Set shared LED/switch pin as output (LED)
+    } else {
+        LEDSW_AS_LED;               // Set shared LED/switch pin as output (LED)
+        TURN_LED_ON;                // Switch the LED on 
+        _delay_ms(2000);
+        TURN_LED_OFF;
+    }
     // Set up the hardware lines and ports associated with accessing the SD card.
     SPI_PORT |= (1<<MOSI_BIT) | (1<<SCK_BIT);                   // drive outputs to the SPI port
     SPI_DDR  |= (1<<CS_BIT) | (1<<MOSI_BIT) | (1<<SCK_BIT);     // make the proper lines outputs
@@ -223,8 +240,6 @@ int main(void)
 
     GenerateCRCTable();         // Needed for some SD commands
 
-    LEDSW_AS_LED;               // Set shared LED/switch pin as output (LED)
-    BlinkLED(PATTERN_BOOTING);  // Test LED on power on
     ReadState();                // Read the card for the first time
 
     while (1)
@@ -369,6 +384,41 @@ static void ReadState(void)
 }
 
 
+/*
+ * SwitchToPermMask()
+ * Switches the currently used lock mask to the "enable permanent lock" mask.
+ * Also, blinks the LED in a SOS pattern.
+ */
+static void SwitchToPermMask(void)
+{
+    lock_bit_mask = LOCK_BIT_MASK_PERM;
+    // In all cases, try first to initialize the card.
+    int i;
+    for (i=0;i<3;i++)
+    {
+        TURN_LED_ON;
+        _delay_ms(300);
+        TURN_LED_OFF;
+        _delay_ms(300);
+    }
+    for (i=0;i<3;i++)
+    {
+        TURN_LED_ON;
+        _delay_ms(100);
+        TURN_LED_OFF;
+        _delay_ms(100);
+    }
+    for (i=0;i<3;i++)
+    {
+        TURN_LED_ON;
+        _delay_ms(300);
+        TURN_LED_OFF;
+        _delay_ms(300);
+    }
+
+}
+
+
 
 /*
  * ShowState()
@@ -400,11 +450,11 @@ static void ToggleState(void)
 
     if (CardIsLocked())     // get ready to unlock it
     {
-        csd[14] &= ~LOCK_BIT_MASK;   // clear bit 12 of CSD (temp lock)
+        csd[14] &= ~lock_bit_mask;   // clear bit 12 of CSD (temp lock)
     }
     else                    // otherwise, get ready to lock it
     {
-      csd[14] |= LOCK_BIT_MASK;      // set bit 12 of CSD (temp lock)
+      csd[14] |= lock_bit_mask;      // set bit 12 of CSD (temp lock)
     }
 
     r = WriteCSD(); // Attempt to write the new state to the card.
@@ -424,7 +474,7 @@ static void ToggleState(void)
  */
 static uint8_t CardIsLocked(void)
 {
-    return (csd[14] & LOCK_BIT_MASK); // check lock bit from CSD
+    return (csd[14] & lock_bit_mask); // check lock bit from CSD
 }
 
 
