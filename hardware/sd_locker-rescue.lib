@@ -1,70 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# power_+3.3V
+# AP1117-33
 #
-DEF power_+3.3V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+3.3V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-ALIAS +3.3V
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +3V3 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_+5V
-#
-DEF power_+5V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+5V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +5V 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_GND
-#
-DEF power_GND #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power_GND" 0 -150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
-X GND 1 0 0 0 D 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# power_VBUS
-#
-DEF power_VBUS #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_VBUS" 0 150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X VBUS 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
-# sd_locker-rescue_AP1117-33
-#
-DEF sd_locker-rescue_AP1117-33 U 0 10 Y Y 1 F N
+DEF AP1117-33 U 0 10 Y Y 1 F N
 F0 "U" -150 125 50 H V C CNN
-F1 "sd_locker-rescue_AP1117-33" 0 125 50 H V L CNN
+F1 "AP1117-33" 0 125 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" 0 200 50 H I C CNN
 F3 "" 100 -250 50 H I C CNN
 $FPLIST
@@ -78,11 +19,11 @@ X VI 3 -300 0 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_ATTINY85-20SU
+# ATTINY85-20SU
 #
-DEF sd_locker-rescue_ATTINY85-20SU U 0 40 Y Y 1 F N
+DEF ATTINY85-20SU U 0 40 Y Y 1 F N
 F0 "U" -1150 400 50 H V C CNN
-F1 "sd_locker-rescue_ATTINY85-20SU" 1000 -400 50 H V C CNN
+F1 "ATTINY85-20SU" 1000 -400 50 H V C CNN
 F2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" 950 0 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -98,11 +39,11 @@ X VCC 8 1350 250 150 L 40 40 1 1 W
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_C_Small
+# C_Small
 #
-DEF sd_locker-rescue_C_Small C 0 10 N N 1 F N
+DEF C_Small C 0 10 N N 1 F N
 F0 "C" 10 70 50 H V L CNN
-F1 "sd_locker-rescue_C_Small" 10 -80 50 H V L CNN
+F1 "C_Small" 10 -80 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -116,11 +57,11 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_Conn_01x02
+# Conn_01x02
 #
-DEF sd_locker-rescue_Conn_01x02 J 0 40 Y N 1 F N
+DEF Conn_01x02 J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "sd_locker-rescue_Conn_01x02" 0 -200 50 H V C CNN
+F1 "Conn_01x02" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -140,11 +81,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_LED
+# LED
 #
-DEF sd_locker-rescue_LED D 0 40 Y N 1 F N
+DEF LED D 0 40 Y N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "sd_locker-rescue_LED" 0 -100 50 H V C CNN
+F1 "LED" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -161,11 +102,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_Q_PMOS_GSD
+# Q_PMOS_GSD
 #
-DEF sd_locker-rescue_Q_PMOS_GSD Q 0 0 Y N 1 F N
+DEF Q_PMOS_GSD Q 0 0 Y N 1 F N
 F0 "Q" 200 50 50 H V L CNN
-F1 "sd_locker-rescue_Q_PMOS_GSD" 200 -50 50 H V L CNN
+F1 "Q_PMOS_GSD" 200 -50 50 H V L CNN
 F2 "" 200 100 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -193,11 +134,11 @@ X D 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_R_Small
+# R_Small
 #
-DEF sd_locker-rescue_R_Small R 0 10 N N 1 F N
+DEF R_Small R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "sd_locker-rescue_R_Small" 30 -40 50 H V L CNN
+F1 "R_Small" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -210,11 +151,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_SD_Card
+# SD_Card
 #
-DEF sd_locker-rescue_SD_Card J 0 40 Y Y 1 F N
+DEF SD_Card J 0 40 Y Y 1 F N
 F0 "J" -650 550 50 H V C CNN
-F1 "sd_locker-rescue_SD_Card" 600 -550 50 H V C CNN
+F1 "SD_Card" 600 -550 50 H V C CNN
 F2 "10067847-001" 200 350 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -248,11 +189,11 @@ X DAT2 9 -900 400 100 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_SW_Push
+# SW_Push
 #
-DEF sd_locker-rescue_SW_Push SW 0 40 N N 1 F N
+DEF SW_Push SW 0 40 N N 1 F N
 F0 "SW" 50 100 50 H V L CNN
-F1 "sd_locker-rescue_SW_Push" 0 -60 50 H V C CNN
+F1 "SW_Push" 0 -60 50 H V C CNN
 F2 "" 0 200 50 H I C CNN
 F3 "" 0 200 50 H I C CNN
 DRAW
@@ -265,11 +206,11 @@ X 2 2 200 0 100 L 50 50 0 1 P
 ENDDRAW
 ENDDEF
 #
-# sd_locker-rescue_USB_OTG
+# USB_OTG
 #
-DEF sd_locker-rescue_USB_OTG J 0 40 Y Y 1 F N
+DEF USB_OTG J 0 40 Y Y 1 F N
 F0 "J" -200 450 50 H V L CNN
-F1 "sd_locker-rescue_USB_OTG" -200 350 50 H V L CNN
+F1 "USB_OTG" -200 350 50 H V L CNN
 F2 "" 150 -50 50 H I C CNN
 F3 "" 150 -50 50 H I C CNN
 $FPLIST
