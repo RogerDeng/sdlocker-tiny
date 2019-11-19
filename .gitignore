@@ -38,3 +38,9 @@ gerbers/
 
 # Position files for pick&placing
 *.pos
+
+#Some useless cache file
+fp-info-cache
+
+# "rescue" backup files
+rescue-backup/

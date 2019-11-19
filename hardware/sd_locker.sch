@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:sd_locker-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -232,12 +232,12 @@ $EndComp
 $Comp
 L power:+5V #PWR010
 U 1 1 5BA884A2
-P 5250 1200
-F 0 "#PWR010" H 5250 1050 50  0001 C CNN
-F 1 "+5V" H 5250 1340 50  0000 C CNN
-F 2 "" H 5250 1200 50  0001 C CNN
-F 3 "" H 5250 1200 50  0001 C CNN
-	1    5250 1200
+P 5600 1200
+F 0 "#PWR010" H 5600 1050 50  0001 C CNN
+F 1 "+5V" H 5600 1340 50  0000 C CNN
+F 2 "" H 5600 1200 50  0001 C CNN
+F 3 "" H 5600 1200 50  0001 C CNN
+	1    5600 1200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -396,8 +396,6 @@ F 3 "" H 3050 1300 50  0001 C CNN
 	1    3050 1300
 	1    0    0    -1  
 $EndComp
-Text Notes 3300 3250 0    60   ~ 0
-TODO:\n\n- Add MOSFET to switch from CARD_DETECT\n- Add button\n- Add SD footprint
 $Comp
 L sd_locker-rescue:SW_Push SW1
 U 1 1 5BCD1502
@@ -423,17 +421,17 @@ $EndComp
 $Comp
 L sd_locker-rescue:Q_PMOS_GSD Q1
 U 1 1 5BCD173E
-P 5700 1300
-F 0 "Q1" H 5900 1350 50  0000 L CNN
-F 1 "Q_PMOS_GSD" V 6050 1100 50  0000 L CNN
-F 2 "sd_locker:IRLML6401-SOT-23_Handsoldering" H 5900 1400 50  0001 C CNN
-F 3 "" H 5700 1300 50  0001 C CNN
-	1    5700 1300
+P 6050 1300
+F 0 "Q1" H 6250 1350 50  0000 L CNN
+F 1 "Q_PMOS_GSD" V 6400 1100 50  0000 L CNN
+F 2 "sd_locker:IRLML6401-SOT-23_Handsoldering" H 6250 1400 50  0001 C CNN
+F 3 "" H 6050 1300 50  0001 C CNN
+	1    6050 1300
 	0    -1   -1   0   
 $EndComp
 Text GLabel 8200 2100 2    60   Input ~ 0
 CD
-Text GLabel 5500 1600 0    60   Input ~ 0
+Text GLabel 5850 1600 0    60   Input ~ 0
 CD
 $Comp
 L power:VBUS #PWR021
@@ -449,41 +447,41 @@ $EndComp
 $Comp
 L power:VBUS #PWR022
 U 1 1 5BCD1A23
-P 6050 1150
-F 0 "#PWR022" H 6050 1000 50  0001 C CNN
-F 1 "VBUS" H 6050 1300 50  0000 C CNN
-F 2 "" H 6050 1150 50  0001 C CNN
-F 3 "" H 6050 1150 50  0001 C CNN
-	1    6050 1150
+P 6400 1150
+F 0 "#PWR022" H 6400 1000 50  0001 C CNN
+F 1 "VBUS" H 6400 1300 50  0000 C CNN
+F 2 "" H 6400 1150 50  0001 C CNN
+F 3 "" H 6400 1150 50  0001 C CNN
+	1    6400 1150
 	1    0    0    -1  
 $EndComp
 $Comp
 L sd_locker-rescue:R_Small R4
 U 1 1 5BCD1ACA
-P 6000 1450
-F 0 "R4" V 6000 1400 50  0000 L CNN
-F 1 "10K" V 5900 1400 50  0000 L CNN
-F 2 "sd_locker:R_0805_10K_HandSoldering" H 6000 1450 50  0001 C CNN
-F 3 "" H 6000 1450 50  0001 C CNN
-	1    6000 1450
+P 6350 1450
+F 0 "R4" V 6350 1400 50  0000 L CNN
+F 1 "10K" V 6250 1400 50  0000 L CNN
+F 2 "sd_locker:R_0805_10K_HandSoldering" H 6350 1450 50  0001 C CNN
+F 3 "" H 6350 1450 50  0001 C CNN
+	1    6350 1450
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	5900 1200 6000 1200
+	6250 1200 6350 1200
 Wire Wire Line
-	6050 1200 6050 1150
+	6400 1200 6400 1150
 Wire Wire Line
-	6000 1200 6000 1350
-Connection ~ 6000 1200
+	6350 1200 6350 1350
+Connection ~ 6350 1200
 Wire Wire Line
-	5700 1500 5700 1600
+	6050 1500 6050 1600
 Wire Wire Line
-	5500 1600 5700 1600
+	5850 1600 6050 1600
 Wire Wire Line
-	6000 1600 6000 1550
-Connection ~ 5700 1600
+	6350 1600 6350 1550
+Connection ~ 6050 1600
 Wire Wire Line
-	5250 1200 5500 1200
+	5600 1200 5850 1200
 $Comp
 L sd_locker-rescue:Conn_01x02 J2
 U 1 1 5BCD1E4F
@@ -573,9 +571,9 @@ F 3 "" H 4950 1300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6000 1200 6050 1200
+	6350 1200 6400 1200
 Wire Wire Line
-	5700 1600 6000 1600
+	6050 1600 6350 1600
 $Comp
 L power:VBUS #PWR0101
 U 1 1 5DBE9517
@@ -602,4 +600,105 @@ Wire Wire Line
 	2450 2600 2550 2600
 Wire Wire Line
 	2550 2600 2550 2550
+$Comp
+L Mechanical:Fiducial FID1
+U 1 1 5DCCB5E6
+P 1150 1000
+F 0 "FID1" H 1235 1046 50  0000 L CNN
+F 1 "Fiducial" H 1235 955 50  0000 L CNN
+F 2 "Fiducial:Fiducial_1.5mm_Mask3mm" H 1150 1000 50  0001 C CNN
+F 3 "~" H 1150 1000 50  0001 C CNN
+	1    1150 1000
+	1    0    0    -1  
+$EndComp
+Text GLabel 7000 4350 0    60   Input ~ 0
+CD
+$Comp
+L Connector:Micro_SD_Card_Det J5
+U 1 1 5DCD5886
+P 7900 3950
+F 0 "J5" H 7850 4767 50  0000 C CNN
+F 1 "Micro_SD_Card_Det" H 7850 4676 50  0000 C CNN
+F 2 "sd_locker:microSD-Receptacle-SelfEject" H 9950 4650 50  0001 C CNN
+F 3 "https://www.hirose.com/product/en/download_file/key_name/DM3/category/Catalog/doc_file_id/49662/?file_category_id=4&item_id=195&is_series=1" H 7900 4050 50  0001 C CNN
+	1    7900 3950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7000 4450
+Text GLabel 7000 4150 0    60   Input ~ 0
+MISO
+$Comp
+L power:GND #PWR0102
+U 1 1 5DCD816F
+P 7000 4050
+F 0 "#PWR0102" H 7000 3800 50  0001 C CNN
+F 1 "GND" V 7000 3850 50  0000 C CNN
+F 2 "" H 7000 4050 50  0001 C CNN
+F 3 "" H 7000 4050 50  0001 C CNN
+	1    7000 4050
+	0    1    1    0   
+$EndComp
+Text GLabel 7000 3950 0    60   Input ~ 0
+SCK
+$Comp
+L power:+3.3V #PWR0103
+U 1 1 5DCD85F9
+P 7000 3850
+F 0 "#PWR0103" H 7000 3700 50  0001 C CNN
+F 1 "+3.3V" V 7000 4100 50  0000 C CNN
+F 2 "" H 7000 3850 50  0001 C CNN
+F 3 "" H 7000 3850 50  0001 C CNN
+	1    7000 3850
+	0    -1   -1   0   
+$EndComp
+Text GLabel 7000 3750 0    60   Input ~ 0
+MOSI
+Text GLabel 7000 3650 0    60   Input ~ 0
+CS
+NoConn ~ 7000 4250
+NoConn ~ 7000 3550
+$Comp
+L power:GND #PWR0104
+U 1 1 5DCD998C
+P 8700 4450
+F 0 "#PWR0104" H 8700 4200 50  0001 C CNN
+F 1 "GND" V 8700 4250 50  0000 C CNN
+F 2 "" H 8700 4450 50  0001 C CNN
+F 3 "" H 8700 4450 50  0001 C CNN
+	1    8700 4450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L sd_locker-rescue:C_Small C5
+U 1 1 5DCF1768
+P 5300 1400
+F 0 "C5" H 5310 1470 50  0000 L CNN
+F 1 "100nF" H 5310 1320 50  0000 L CNN
+F 2 "sd_locker:C_0805_100nF_HandSoldering" H 5300 1400 50  0001 C CNN
+F 3 "" H 5300 1400 50  0001 C CNN
+	1    5300 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0105
+U 1 1 5DCF1772
+P 5300 1300
+F 0 "#PWR0105" H 5300 1150 50  0001 C CNN
+F 1 "+3.3V" H 5300 1440 50  0000 C CNN
+F 2 "" H 5300 1300 50  0001 C CNN
+F 3 "" H 5300 1300 50  0001 C CNN
+	1    5300 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 5DCF177C
+P 5300 1500
+F 0 "#PWR0106" H 5300 1250 50  0001 C CNN
+F 1 "GND" H 5300 1350 50  0000 C CNN
+F 2 "" H 5300 1500 50  0001 C CNN
+F 3 "" H 5300 1500 50  0001 C CNN
+	1    5300 1500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
