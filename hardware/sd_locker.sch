@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:sd_locker-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -194,7 +193,6 @@ MISO
 Text GLabel 6400 2000 0    60   Input ~ 0
 CS
 NoConn ~ 6400 1900
-NoConn ~ 6400 2700
 $Comp
 L power:GND #PWR08
 U 1 1 5BA883BF
@@ -591,7 +589,7 @@ U 1 1 5DBE97F2
 P 2350 2600
 F 0 "R5" V 2350 2550 50  0000 L CNN
 F 1 "0" V 2250 2550 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" H 2350 2600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2350 2600 50  0001 C CNN
 F 3 "" H 2350 2600 50  0001 C CNN
 	1    2350 2600
 	0    1    1    0   
@@ -712,4 +710,28 @@ F 3 "~" H 1150 1200 50  0001 C CNN
 	1    1150 1200
 	1    0    0    -1  
 $EndComp
+Text GLabel 2900 4000 0    50   Input ~ 0
+RST
+Wire Wire Line
+	2900 4000 3100 4000
+Connection ~ 3100 4000
+$Comp
+L sd_locker-rescue:R_Small R6
+U 1 1 5E1E87AC
+P 6000 2700
+F 0 "R6" V 6000 2650 50  0000 L CNN
+F 1 "0" V 5900 2650 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6000 2700 50  0001 C CNN
+F 3 "" H 6000 2700 50  0001 C CNN
+	1    6000 2700
+	0    1    1    0   
+$EndComp
+Text GLabel 5900 2700 0    50   Input ~ 0
+RST
+Wire Wire Line
+	6100 2700 6400 2700
+Text Notes 4900 3100 0    50   ~ 0
+RST is connected to DAT1 purely to allow\nreprogramming the ATTiny through\nthe large SD card socket.
+Text Notes 6550 1350 0    50   ~ 0
+power management - powers the circuit\nwhen CD is pulled to GND through one\nof the sockets
 $EndSCHEMATC
