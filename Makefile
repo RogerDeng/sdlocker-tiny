@@ -1,7 +1,5 @@
 # Makefile for avr-gcc, avrdude
 
-BROKEN_PINOUT=0
-
 SRC=sdlocker-tiny
 BAUD=19200
 PRGDEV=/dev/ttyACM0
@@ -10,8 +8,6 @@ AVRTYPE=attiny85
 AVRTYPESHORT=t85
 AVRFREQ=8000000
 CFLAGS=-g -DF_CPU=$(AVRFREQ) -Wall -Os -Werror -Wextra
-
-CFLAGS += -DBROKEN_PINOUT=${BROKEN_PINOUT}
 
 all : $(SRC).hex
 

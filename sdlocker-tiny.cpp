@@ -112,13 +112,8 @@
 /*
  * Define bits used by the SPI port.
  */
-#if BROKEN_PINOUT
-  #define MOSI_BIT    1
-  #define MISO_BIT    0
-#else
-  #define MOSI_BIT    0
-  #define MISO_BIT    1
-#endif
+#define MOSI_BIT    0
+#define MISO_BIT    1
 #define SCK_BIT     2
 #define CS_BIT      3
 
