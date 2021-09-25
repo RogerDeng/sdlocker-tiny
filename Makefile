@@ -1,9 +1,9 @@
 # Makefile for avr-gcc, avrdude
 
 SRC=sdlocker-tiny
-BAUD=19200
+BAUD=32
 PRGDEV=/dev/ttyACM0
-PRGTYPE=avrisp
+PRGTYPE=usbasp-clone
 AVRTYPE=attiny85
 AVRTYPESHORT=t85
 AVRFREQ=8000000
