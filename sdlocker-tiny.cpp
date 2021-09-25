@@ -179,7 +179,6 @@
 /*
  * Local variables
  */
-uint32_t    LEDPattern; // Blinking patterns
 uint8_t     sdtype;     // Flag for SD card type
 uint8_t     csd[16];    // Card registers
 //uint8_t     cid[16];
